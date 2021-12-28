@@ -1,3 +1,5 @@
+//Credits: https://github.com/altmp/altv-example-resources/tree/master/chat
+
 import * as alt from "alt-server";
 
 let cmdHandlers = {};
