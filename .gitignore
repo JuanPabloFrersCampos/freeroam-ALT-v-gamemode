@@ -19,3 +19,4 @@ libnode.dll
 altv-server/node_modules/*
 altv-server/node_modules/i/
 altv-server/node_modules/npm/
+*.exe
