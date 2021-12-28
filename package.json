@@ -1,0 +1,28 @@
+{
+  "name": "freeroam-alt-v-gamemode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanPabloFrersCampos/freeroam-ALT-v-gamemode.git"
+  },
+  "author": "",
+  "type": "module",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuanPabloFrersCampos/freeroam-ALT-v-gamemode/issues"
+  },
+  "homepage": "https://github.com/JuanPabloFrersCampos/freeroam-ALT-v-gamemode#readme",
+  "devDependencies": {
+    "@altv/types-client": "^1.9.9",
+    "@altv/types-natives": "^1.4.4",
+    "@altv/types-server": "^2.1.7",
+    "@altv/types-webview": "^1.0.2",
+    "i": "^0.3.7",
+    "npm": "^8.3.0"
+  }
+}
