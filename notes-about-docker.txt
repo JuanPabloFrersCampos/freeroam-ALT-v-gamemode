@@ -1,0 +1,14 @@
+from docker-compose-yaml we specified that we will have two containers:
+  one for mongo-express, the other for mongodb.
+
+to start docker we use: docker-compose -f docker-compose-yaml up (assuming that u are in 
+  a directory with a .yaml file named like that)
+with docker ps we can print all the existing containers
+with docker exec -it [container id] bash you may connect to the specified container. 
+  mongo is the one that is the one holding the db at the moment.
+once inside the container, in order to connect to the DB we use the info specified in docker-compose:
+  mongo mongodb://localhost:27017 -u rootuser -p rootpass
+
+
+Mongo-related:
+Once connected to the DB, we can use show dbs to show all the available DBS
