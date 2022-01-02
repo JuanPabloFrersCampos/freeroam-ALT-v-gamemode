@@ -108,4 +108,23 @@ export class Database{
       `[DATABASE] #5 Connection Complete! Utilizing ${totalCollections + collectionsNotFound.length} collections.`
     );
   }
+
+  /**
+   * 
+   * @param {string} fieldName Field we are interested in
+   * @param {any} fieldValue Value we are interested in
+   * @param {string} collection Collection name
+   * @returns {Promise || null} A single document. Null if no document match the query.
+   */
+  export async findOne(fieldName, fieldValue, collection){
+    const result = await thid.db.collection(collection).findOne({
+      [fieldName]: [fieldValue]
+    });
+    return result;
+  }
+
+  export async insertOne(collection, doc){
+    const result = await this.db.collection(collection).insertOne(doc);
+    console.log(`A document was inserted with the _id: ${result.insertedId}`);
+  }
 }
