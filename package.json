@@ -24,5 +24,8 @@
     "@altv/types-webview": "^1.0.2",
     "i": "^0.3.7",
     "npm": "^8.3.0"
+  },
+  "dependencies": {
+    "mongob": "^1.0.0"
   }
 }

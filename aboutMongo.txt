@@ -1,0 +1,40 @@
+In mongo the "tables" (it are not tables since it is nosql) are called COLLECTIONS. The objects inside those collections are DOCUMENTS
+
+- mongod >> execute mongo (it is not installed as a service in this pc)
+- show dbs >> shows databases
+- to switch to a db > db use
+- db >> returns db name
+
+INSERT DOCUMENTS & CREATE COLLECTIONS
+- to create a collection simply use db.createCollection("collection-name") >> db.createCollection("users");
+  OR use db.[collection-name].insert({json object})
+- to erase a collection use db.[collection-name].drop()
+to show documents in a collection > db.[collection-name].find() || db.[collection-name].find().pretty()
+Documents in the same collection can have different attributes, this is a big difference with sql databases
+
+TO FIND A DOCUMENT:
+- db.[collection-name].find >> shows the hole collection
+- db.products.find({"tags": "computers"}) >> find inside collection al the products with tags == computer
+- db.products.find({"tags": "computers", "description": "lg monitor"}) >> multiple criteria to search
+findOne method is also available for example
+
+UPDATE A DOCUMENT:
+https://docs.mongodb.com/manual/tutorial/update-documents/
+
+JSON that can be inserted example:
+{
+  "name": "Pedro",
+  "age": 18,
+  "active": false,
+  "created_at": new Date("12/12/1999"),
+  "facturer": {
+    "name": "dell",
+    "version": "xps",
+    "location": {
+      "city": "usa",
+      "address": "illinois"
+    }
+  }
+}
+
+once a document is inserted, it is converted from json to b(inary)son, to do searchs faster
