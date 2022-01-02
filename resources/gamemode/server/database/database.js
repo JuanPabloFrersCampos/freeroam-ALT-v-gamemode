@@ -116,14 +116,19 @@ export class Database{
    * @param {string} collection Collection name
    * @returns {Promise || null} A single document. Null if no document match the query.
    */
-  export async findOne(fieldName, fieldValue, collection){
-    const result = await thid.db.collection(collection).findOne({
-      [fieldName]: [fieldValue]
+  async findOne(collection, fieldName, fieldValue){
+    const result = await this.db.collection(collection).findOne({
+      [fieldName]: fieldValue
     });
     return result;
   }
 
-  export async insertOne(collection, doc){
+  /**
+   * 
+   * @param {string} collection Collection name
+   * @param {JSON} doc Document in JSON format
+   */
+  async insertOne(collection, doc){
     const result = await this.db.collection(collection).insertOne(doc);
     console.log(`A document was inserted with the _id: ${result.insertedId}`);
   }
