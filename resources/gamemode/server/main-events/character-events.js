@@ -17,11 +17,10 @@ async function handleConnect (player) {
     player.model = `mp_m_freemode_01`;
     chat.broadcast(`Welcome back ${player.name}!`);
   }
-  else{/*
+  else{
     const newUser = await db.insertOne('users', {
       'username': player.name
     }).catch(err => console.log(`Error when creating newUser, error: ${err}`));
-    */
     player.spawn(-1291.71, 83.43, 54.89, 1000); // Spawns after 1 second.
     player.model = `mp_m_freemode_01`;
     chat.broadcast(`Welcome ${player.name} for very first time.`);
