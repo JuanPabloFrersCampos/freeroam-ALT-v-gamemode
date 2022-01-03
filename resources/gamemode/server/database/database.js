@@ -57,7 +57,7 @@ export class Database{
     });
     
     this.db = this.client.db(this.databasename);
-    this.generateCollections();
+    await this.generateCollections();
     instance = this;
   }
 
@@ -109,19 +109,34 @@ export class Database{
     );
   }
 
+  // --- READ operations---
+
   /**
    * 
    * @param {string} fieldName Field we are interested in
    * @param {any} fieldValue Value we are interested in
    * @param {string} collection Collection name
    * @returns {Promise || null} A single document. Null if no document match the query.
-   */
+  */
   async findOne(collection, fieldName, fieldValue){
     const result = await this.db.collection(collection).findOne({
       [fieldName]: fieldValue
     });
     return result;
   }
+
+  /**
+   * @param {string} fieldName Field we want to select.
+   * @param {any} fieldValue Field value we want to find.
+   * @param {string} collection Name of the collection.
+  */
+   async fetchData(fieldName, fieldValue, collection) {
+
+    const result = await this.db.collection(collection).findOne({ [fieldName]: fieldValue });
+    return result;
+}
+
+  // --- CREATE operations ---
 
   /**
    * 
@@ -132,4 +147,19 @@ export class Database{
     const result = await this.db.collection(collection).insertOne(doc);
     console.log(`A document was inserted with the _id: ${result.insertedId}`);
   }
+
+  // --- UPDATE operations ---
+
+  async updateField(collection, username, partialObjectData){
+    try {
+        await this.db
+            .collection(collection)
+            .findOneAndUpdate({ username: username }, { $set: { ...partialObjectData } });
+
+        return true;
+    } catch (err) {
+        console.error(err);
+        return false;
+    }
+}
 }
